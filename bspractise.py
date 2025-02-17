@@ -45,6 +45,25 @@ soup = bs(html_doc, 'html.parser')
 # for strs in soup.body.strings:
 #     print(strs)
 #.stripped_strings generator: remove extra whitespace by using 
-for strs in soup.body.stripped_strings:
-    print(strs)
+# for strs in soup.body.stripped_strings:
+#     print(strs)
     
+    
+#Going up the tree:
+#.parent: to get the parent of a tag
+# print(soup.title.parent)
+# #parent of tag string is the tag itself
+# print(soup.title.string.parent)
+# #parent of top-level tag is the bs object itself
+# print(soup.html.parent)  
+# #parent of bs obj is None:
+# print(soup.parent)
+
+# .parents: iterate over all of an element's parents
+# aTag = soup.a
+# print(aTag)
+# for parent in aTag.parents:
+#     print(parent.name)
+#.self_and_parents generator: gives the entire ancestry of an element, including the element itself
+
+

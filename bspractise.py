@@ -67,3 +67,13 @@ soup = bs(html_doc, 'html.parser')
 #.self_and_parents generator: gives the entire ancestry of an element, including the element itself
 
 
+
+#Going sideways the tree:
+sibling_soup = bs("<a><b>text1</b><c>text2</c></a>", 'html.parser')
+# print(sibling_soup.prettify())
+# print(sibling_soup.b.next_sibling)
+# print(sibling_soup.c.previous_sibling)
+# for sibling in soup.a.next_siblings:
+#     print(repr(sibling))
+for sibling in soup.find(id="link3").previous_siblings:
+    print(repr(sibling))

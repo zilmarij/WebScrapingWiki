@@ -6,7 +6,7 @@ html_doc = """
 <p class="story">Once upon a time there were three little sisters; and their names were
 <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
 <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
-<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+<a href="http://example.com/tillie" class="sister" id="link3" name="tillie">Tillie</a>;
 and they lived at the bottom of a well.</p>
 
 <p class="story">...</p>
@@ -84,12 +84,14 @@ sibling_soup = bs("<a><b>text1</b><c>text2</c></a>", 'html.parser')
 #Filter types:
 #string:
 # print(soup.find_all('b'))
-#regEx:
-# import re
+
+# #regEx:
+import re
 # for tag in soup.find_all(re.compile("^b")):
 #     print(tag.name)
 # for tag in soup.find_all(re.compile("t")):
 #     print(tag.name)
+
 # #True:
 # for tag in soup.find_all(True):
 #     print(tag.name)
@@ -98,6 +100,36 @@ sibling_soup = bs("<a><b>text1</b><c>text2</c></a>", 'html.parser')
 # #A list:
 # print(soup.find_all(["a", "b"]))
 
+#The Name Argument:
+# print(soup.find_all('b')) 
 
+#The keyword argument:
+# print(soup.find_all(id="link2"))
+# print(soup.find_all(href=re.compile("elsie")))
+
+#filter against multiple attributes 
+# print(soup.find_all(href=re.compile("elsie")), id="link2")
+
+# print(soup.find_all(attrs={"name":"tillie"}))
+
+
+#Search by CSS class:
+# print(soup.find_all(class_="title"))
+# print(soup.find_all("p", class_="story"))
+
+#search for strings instead of tags:
+# print(soup.find_all(string="Elsie"))
+# print(soup.find_all(string=re.compile("Dormouse" )))
+# print(soup.find_all('a',string="Elsie"))
+
+
+#Limit argument:
+print(soup.find_all('a', limit=2))
+
+#recursive argument: to consider only direct children to tag_ in tag_.find_all(), and not descendants and sub-descendants and so on..
+print(soup.find_all('a', recursive=False))
+
+
+#------------------------find() method ------------------------#
 
 

@@ -75,5 +75,29 @@ sibling_soup = bs("<a><b>text1</b><c>text2</c></a>", 'html.parser')
 # print(sibling_soup.c.previous_sibling)
 # for sibling in soup.a.next_siblings:
 #     print(repr(sibling))
-for sibling in soup.find(id="link3").previous_siblings:
-    print(repr(sibling))
+# for sibling in soup.find(id="link3").previous_siblings:
+#     print(repr(sibling))
+    
+    
+    
+#Searching the tree:
+#Filter types:
+#string:
+# print(soup.find_all('b'))
+#regEx:
+# import re
+# for tag in soup.find_all(re.compile("^b")):
+#     print(tag.name)
+# for tag in soup.find_all(re.compile("t")):
+#     print(tag.name)
+# #True:
+# for tag in soup.find_all(True):
+#     print(tag.name)
+# #A function:
+
+# #A list:
+# print(soup.find_all(["a", "b"]))
+
+
+
+
